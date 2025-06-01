@@ -55,7 +55,7 @@ const StartupPage = async ({ params }: { params: Promise<{ id?: string }> }) => 
             </section>
 
             <Suspense fallback={<Skeleton className='view_skeleton' />}>
-                <View id={id ?? ''}/>  { /*Ensure id is not defined*/ }
+                <View id={id ?? ''}/>  {/* Ensure id is not defined */}
             </Suspense>
         </>
     )
