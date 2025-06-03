@@ -13,7 +13,7 @@ import router, { useRouter } from 'next/router'
 import { createPitch } from '@/action'
 
 const StartupForm = () => {
-
+    
     const handleSubmit = async (state: any, formData: FormData) => {
         try{
             const formValues = {
@@ -36,7 +36,6 @@ const StartupForm = () => {
                 toast({
                     title: 'Startup Submitted',
                     description: 'Your startup idea has been successfully submitted!',
-                    variant: 'default',
                 });
                 router.push(`/startup/${(result as unknown as { _id: string })._id}`);
             }
