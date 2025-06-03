@@ -29,3 +29,7 @@ export function formatViews(views: number) {
   }
   return views.toString()
 }
+
+export function pareseServerActionResponse<T>(response: T): T {
+  return JSON.parse(JSON.stringify(response));
+} 

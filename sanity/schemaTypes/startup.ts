@@ -45,6 +45,24 @@ export const startup = defineType({
             name: 'pitch',
             type: 'markdown',
         }),
+        defineField({
+            name: 'createdAt',
+            type: 'datetime',
+            options: {
+                dateFormat: 'YYYY-MM-DD',
+                timeFormat: 'HH:mm:ss'
+            },
+            initialValue: () => new Date().toISOString(),
+        }),
+        defineField({
+            name: 'updatedAt',
+            type: 'datetime',
+            options: {
+                dateFormat: 'YYYY-MM-DD',
+                timeFormat: 'HH:mm:ss',
+            },
+            initialValue: () => new Date().toISOString(),
+        }),
     ],
     preview: {
         select: {

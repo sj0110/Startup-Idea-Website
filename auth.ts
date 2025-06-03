@@ -10,6 +10,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async signIn({ user, profile }) {
       const existingUser = await client.withConfig({ useCdn: false }).fetch(AUTHOR_BY_GITHUB_QUERY, { id: profile?.id })
 
+      // If doesn't exist, we create a new author in Sanity with the GitHub profile data
       if (!existingUser) {
         await writeClient.create({
           _type: 'author',
@@ -23,7 +24,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         })
       }
 
-      return true;
+      return true; // Continue sign-in
     },
     async jwt({ token, account, profile }) {
       if (account && profile) {

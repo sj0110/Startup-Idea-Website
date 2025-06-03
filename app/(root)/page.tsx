@@ -15,8 +15,9 @@ const Home = async ({ searchParams }: { searchParams: Promise<{ query?: string }
     const params = { search: query || null };
 
     const session = await auth();
-    console.log((session as any)?.id);
+    // console.log((session as any)?.id);
 
+    
     // const posts = await client.fetch(STARTUPS_QUERY);
     const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
     // console.log(posts); 
